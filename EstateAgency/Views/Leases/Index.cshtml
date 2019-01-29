@@ -1,0 +1,101 @@
+﻿@model EstateAgency.Models.ViewModels.LeaseIndexData
+
+@{
+    ViewData["Title"] = "Leases";
+}
+
+<h2>Договоры аренды</h2>
+
+<p>
+    <a asp-action="Create">Добавить договор аренды</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Номер договора
+            </th>
+            <th>
+                Собственник
+            </th>
+            <th>
+                Арендатор
+            </th>
+            <th>
+                Дата заключения
+            </th>
+            <th>
+                Дата окончания
+            </th>
+            <th>
+                Арендная плата
+            </th>
+            <th>
+                Объекты недвижимости
+            </th>
+            <th>
+                Площадь
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Leases)
+        {
+            string selectedRow = "";
+            if (item.ID == (int?)ViewData["LeaseID"])
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number)
+                </td>
+                <td>
+                    @{
+                        foreach (var estate in item.RentEstate_Leases)
+                        {
+                            @estate.Estate.ClientID <br />
+                        }
+                    }
+                </td>
+                <td>
+                    @{
+                        foreach (var tenant in item.Client_Treaties)
+                        {
+                            if (tenant.Client.ClientStatus == ClientStatus.Tenant)
+                            {
+                                @tenant.Client.FullName <br />
+                            }
+                        }
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SignDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalRentPrice)
+                </td>
+                <td>
+                    @{
+                        foreach (var estate in item.RentEstate_Leases)
+                        {
+                            @estate.Estate.InventoryNumber <br />
+                        }
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Area)
+                </td>
+                <td>
+                    <a asp-action="Index" asp-route-id="@item.ID">Выбрать</a> |
+                    <a asp-action="Edit" asp-route-id="@item.ID">Изменить</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Сведения</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

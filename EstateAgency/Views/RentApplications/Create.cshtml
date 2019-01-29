@@ -1,0 +1,60 @@
+﻿@model EstateAgency.Models.RentApplication
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Оставление заявки</h2>
+
+<h4>Аренда недвижимости</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label>Наименование клиента</label>
+                <input asp-for="ClientName" class="form-control" />
+                <span asp-validation-for="ClientName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Телефон</label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Контактное лицо</label>
+                <input asp-for="ContactPerson" class="form-control" />
+                <span asp-validation-for="ContactPerson" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Арендная плата (кв.м.)</label>
+                <input asp-for="RentPrice" class="form-control" />
+                <span asp-validation-for="RentPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Тип объекта недвижимости</label>
+                <input asp-for="EstateType" class="form-control" />
+                <span asp-validation-for="EstateType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Площадь</label>
+                <input asp-for="EstateArea" class="form-control" />
+                <span asp-validation-for="EstateArea" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Иная информация</label>
+                <input asp-for="OtherRequirements" class="form-control" />
+                <span asp-validation-for="OtherRequirements" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад</a>
+</div>
+

@@ -1,0 +1,114 @@
+﻿@model IEnumerable<EstateAgency.Models.SaleEstate>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Продажа недвижимости</h2>
+
+<p>
+    <a asp-action="Create">Добавить объект</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SalePrice)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.InventoryNumber)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Wall)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Area)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShortDescription)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.LongDescription)
+                </th>*@
+            @*<th>
+                @Html.DisplayNameFor(model => model.ImageURL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageThumbURL)
+            </th>*@
+            @*<th>
+                @Html.DisplayNameFor(model => model.SaleStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientID)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SalePrice)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.InventoryNumber)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.Wall)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Area)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Adress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShortDescription)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.LongDescription)
+                </td>*@
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.ImageURL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImageThumbURL)
+                </td>*@
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.SaleStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClientID)
+                </td>*@
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Изменить</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Сведения</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,51 @@
+﻿@model EstateAgency.Models.Lease
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Удаление</h2>
+<p class="text-danger">@ViewData["ErrorMessage"]</p>
+<h3>Вы настаиваеете на удалении?</h3>
+<div>
+    <h4>Договор аренды</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Номер
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+        <dt>
+            Дата заключения
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SignDate)
+        </dd>
+        <dt>
+            Дата окончания
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+        <dt>
+            Ставка аренды
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalRentPrice)
+        </dd>
+        <dt>
+            Арендуемая площадь
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Area)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Удалить" class="btn btn-default" /> |
+        <a asp-action="Index">Назад</a>
+    </form>
+</div>

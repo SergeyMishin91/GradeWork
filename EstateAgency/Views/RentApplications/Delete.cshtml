@@ -1,0 +1,62 @@
+﻿@model EstateAgency.Models.RentApplication
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Настаиваете на удалении?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RentPrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RentPrice)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ClientName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ClientName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactPerson)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ContactPerson)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EstateType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EstateType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EstateArea)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EstateArea)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OtherRequirements)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OtherRequirements)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Удалить" class="btn btn-default" /> |
+        <a asp-action="Index">Назад</a>
+    </form>
+</div>

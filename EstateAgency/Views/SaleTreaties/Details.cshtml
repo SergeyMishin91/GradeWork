@@ -1,0 +1,62 @@
+﻿@model EstateAgency.Models.SaleTreaty
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Сведения</h2>
+
+<div>
+    <h4>Договоры купли-продажи</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Number)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SignDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SignDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalSalePrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalSalePrice)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Estates)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Инвентарный номер</th>
+                    <th>Тип</th>
+                    <th>Общая площадь</th>
+                </tr>
+                @foreach (var item in Model.Estates)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InventoryNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Area)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Изменить</a> |
+    <a asp-action="Index">Назад</a>
+</div>
